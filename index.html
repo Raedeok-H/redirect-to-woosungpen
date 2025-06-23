@@ -1,11 +1,108 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://woosungpen.com" />
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    Redirecting to <a href="https://woosungpen.com">woosungpen.com</a>
-  </body>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>우성인지펜 안내</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+      color: #fff;
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .container {
+      padding: 3rem;
+      max-width: 95vw;
+      transform: translateY(-40px);
+    }
+
+    .message {
+      font-size: 4rem; /* 이전: 2.7rem */
+      line-height: 1.7;
+      margin-bottom: 6rem; /* 이전: 5rem */
+    }
+
+    .highlight-blue {
+      color: #00e0ff;
+      font-weight: bold;
+    }
+
+    .highlight-red {
+      color: #ff3b3b;
+      font-weight: bold;
+    }
+
+    .count-line {
+      font-size: 4.2rem; /* 이전: 3rem */
+      margin-bottom: 4rem; /* 이전: 2.5rem */
+      white-space: nowrap;
+    }
+
+    .count {
+      font-size: 5rem; /* 이전: 4rem */
+      font-weight: bold;
+      color: #00e0ff;
+      animation: blink 1s infinite;
+    }
+
+    .button {
+      padding: 1.5rem 4rem;
+      font-size: 2.2rem; /* 이전: 1.8rem */
+      font-weight: bold;
+      background: linear-gradient(135deg, #00e0ff, #00b8cc);
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0, 224, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #00b8cc, #00e0ff);
+      box-shadow: 0 8px 18px rgba(0, 224, 255, 0.5);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="message">
+      <span class="highlight-blue">2025년 8월 11일</span> 이후,<br>
+      <span class="highlight-red">이용이 불가능</span>한 주소입니다.
+    </p>
+    <p class="count-line">
+      <strong>새로운 우성인지펜</strong>으로 <span id="counter" class="count">15</span>초 후 이동합니다.
+    </p>
+    <button class="button" onclick="redirectNow()">👉 woosungpen.com 바로가기</button>
+  </div>
+
+  <script>
+    let count = 15;
+    const counterEl = document.getElementById('counter');
+
+    const countdown = setInterval(() => {
+      count--;
+      counterEl.textContent = count;
+      if (count === 0) {
+        clearInterval(countdown);
+        redirectNow();
+      }
+    }, 1000);
+
+    function redirectNow() {
+      window.location.href = "https://woosungpen.com";
+    }
+  </script>
+</body>
 </html>
